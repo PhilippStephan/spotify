@@ -1,0 +1,9 @@
+{
+  "name": "search-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/search/domain/src",
+  "prefix": "search",
+  "tags": ["domain:search", "type:domain-logic"],
+  "projectType": "library",
+  "targets": {}
+}

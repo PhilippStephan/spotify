@@ -1,0 +1,9 @@
+{
+  "name": "profile-ui-profile",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/profile/ui-profile/src",
+  "prefix": "profile",
+  "tags": ["domain:profile", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

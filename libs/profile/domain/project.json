@@ -1,0 +1,9 @@
+{
+  "name": "profile-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/profile/domain/src",
+  "prefix": "profile",
+  "tags": ["domain:profile", "type:domain-logic"],
+  "projectType": "library",
+  "targets": {}
+}

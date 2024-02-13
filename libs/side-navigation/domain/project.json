@@ -1,0 +1,9 @@
+{
+  "name": "side-navigation-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/side-navigation/domain/src",
+  "prefix": "side-navigation",
+  "tags": ["domain:side-navigation", "type:domain-logic"],
+  "projectType": "library",
+  "targets": {}
+}

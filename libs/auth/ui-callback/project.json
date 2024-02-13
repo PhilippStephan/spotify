@@ -1,0 +1,9 @@
+{
+  "name": "auth-ui-callback",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/auth/ui-callback/src",
+  "prefix": "callback",
+  "tags": ["domain:auth", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

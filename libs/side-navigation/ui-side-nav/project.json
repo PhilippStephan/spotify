@@ -1,0 +1,9 @@
+{
+  "name": "side-navigation-ui-side-nav",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/side-navigation/ui-side-nav/src",
+  "prefix": "side-nav",
+  "tags": ["domain:side-navigation", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

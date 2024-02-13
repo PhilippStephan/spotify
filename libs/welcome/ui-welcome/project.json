@@ -1,0 +1,9 @@
+{
+  "name": "welcome-ui-welcome",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/welcome/ui-welcome/src",
+  "prefix": "welcome",
+  "tags": ["domain:welcome", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

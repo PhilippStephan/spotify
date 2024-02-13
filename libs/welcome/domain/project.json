@@ -1,0 +1,9 @@
+{
+  "name": "welcome-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/welcome/domain/src",
+  "prefix": "welcome",
+  "tags": ["domain:welcome", "type:domain-logic"],
+  "projectType": "library",
+  "targets": {}
+}

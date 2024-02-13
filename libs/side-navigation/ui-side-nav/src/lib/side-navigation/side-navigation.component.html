@@ -1,0 +1,10 @@
+<mat-nav-list>
+@for (node of TREE_DATA; track node.name){
+  <mat-list-item routerLink="{{node.route}}" routerLinkActive="active">
+    <span class="list-item">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="{{node.icon}}"></mat-icon>
+      <span matLine class="text">{{node.name}}</span>
+    </span>
+  </mat-list-item>
+}
+</mat-nav-list>

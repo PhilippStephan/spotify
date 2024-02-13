@@ -23,7 +23,10 @@
           "apps/spotify-app/src/favicon.ico",
           "apps/spotify-app/src/assets"
         ],
-        "styles": ["apps/spotify-app/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/spotify-app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -78,7 +81,10 @@
           "apps/spotify-app/src/favicon.ico",
           "apps/spotify-app/src/assets"
         ],
-        "styles": ["apps/spotify-app/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/spotify-app/src/styles.scss"
+        ],
         "scripts": []
       }
     }

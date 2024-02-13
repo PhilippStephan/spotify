@@ -1,0 +1,9 @@
+{
+  "name": "profile-ui-logout",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/profile/ui-logout/src",
+  "prefix": "logout",
+  "tags": ["domain:profile", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

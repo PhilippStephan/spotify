@@ -1,0 +1,9 @@
+{
+  "name": "auth-api-data-access",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/auth/api-data-access/src",
+  "prefix": "data-access",
+  "tags": ["domain:auth", "domain:auth/api-data-access", "type:api"],
+  "projectType": "library",
+  "targets": {}
+}

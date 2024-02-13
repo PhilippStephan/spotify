@@ -1,0 +1,9 @@
+{
+  "name": "search-ui-search",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/search/ui-search/src",
+  "prefix": "search",
+  "tags": ["domain:search", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

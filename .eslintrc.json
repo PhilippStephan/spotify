@@ -45,6 +45,44 @@
               {
                 "sourceTag": "type:domain-logic",
                 "onlyDependOnLibsWithTags": ["type:util"]
+              },
+              {
+                "sourceTag": "domain:auth",
+                "onlyDependOnLibsWithTags": ["domain:auth", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:welcome",
+                "onlyDependOnLibsWithTags": ["domain:welcome", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:dashboard",
+                "onlyDependOnLibsWithTags": [
+                  "domain:dashboard",
+                  "domain:shared"
+                ]
+              },
+              {
+                "sourceTag": "domain:shared",
+                "onlyDependOnLibsWithTags": ["domain:shared", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:side-navigation",
+                "onlyDependOnLibsWithTags": [
+                  "domain:side-navigation",
+                  "domain:shared"
+                ]
+              },
+              {
+                "sourceTag": "domain:search",
+                "onlyDependOnLibsWithTags": ["domain:search", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:library",
+                "onlyDependOnLibsWithTags": ["domain:library", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:profile",
+                "onlyDependOnLibsWithTags": ["domain:profile", "domain:shared"]
               }
             ]
           }
