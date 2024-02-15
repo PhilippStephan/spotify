@@ -1,37 +1,40 @@
-import {Component, inject, Injectable} from '@angular/core';
+import {Component, inject, Injectable, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {AuthService} from "auth/api-data-access";
+import {AuthService, RequestDataService} from "auth/api-data-access";
 import {USER_INTERFACE} from "shared/domain";
 import {MatFormField} from "@angular/material/form-field";
 import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
 import {ActivatedRoute} from "@angular/router";
-import {map} from "rxjs";
+import {BehaviorSubject, debounceTime, map, Observable, of, startWith, switchMap} from "rxjs";
 import {forEach} from "@angular-devkit/schematics";
+import {FormControl, ReactiveFormsModule} from "@angular/forms";
+import {MatAutocomplete, MatAutocompleteTrigger, MatOption} from "@angular/material/autocomplete";
+import {SearchComponent} from "../search/search.component";
+import {MatList, MatListItem} from "@angular/material/list";
 
 @Component({
   selector: 'search-shell',
   standalone: true,
-  imports: [CommonModule, MatFormField, MatButton, MatInput],
+  imports: [CommonModule, MatFormField, MatButton, MatInput, MatAutocomplete, MatOption, MatAutocompleteTrigger, ReactiveFormsModule, SearchComponent, MatList, MatListItem],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.css',
 })
 
 @Injectable({providedIn: 'root'})
-export class ShellComponent {
-  protected readonly sessionStorage = sessionStorage;
-  activatedRoute = inject(ActivatedRoute)
-  authService = inject(AuthService);
-  artist: string = '';
-  user: USER_INTERFACE | undefined;
+export class ShellComponent{
 
-  searchArtist(input: string) {
-    const access_token = sessionStorage.getItem('access_token');
-    if(access_token)
-      console.log(access_token+ " " + input)
-    this.authService.searchArtist(input).then(r => {
-      console.log(r);
-      this.artist = r;
-    });
+  protected readonly window = window.localStorage;
+  requestDataService = inject(RequestDataService);
+
+
+  filterSearch$ = new BehaviorSubject('');
+  resultArtists$ = this.filterSearch$.pipe(
+    debounceTime(200),
+    switchMap((filterString) => this.searchArtist(filterString))
+  )
+
+  async searchArtist(input: string): Promise<string[]> {
+      return await this.requestDataService.searchArtist(input);
   }
 }

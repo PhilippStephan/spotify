@@ -1,0 +1,9 @@
+{
+  "name": "profile-util-fetch-data",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/profile/util-fetch-data/src",
+  "prefix": "fetch-data",
+  "tags": ["domain:profile", "type:util"],
+  "projectType": "library",
+  "targets": {}
+}

@@ -1,8 +1,5 @@
-export interface IMAGE{
-  url: string;
-  height: number;
-  width: number;
-}
+import {IMAGE} from "./IMAGE_INTERFACE";
+
 export interface USER_INTERFACE{
   displayName: string,
   followers: number,

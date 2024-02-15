@@ -17,20 +17,4 @@ import {USER_INTERFACE} from "shared/domain";
 @Injectable({providedIn: 'root'})
 export class DashboardComponent{
 
-  @ViewChild('searchInput') searchInput: MatInput | undefined;
-
-  protected readonly sessionStorage = sessionStorage;
-  authService = inject(AuthService);
-  artist: string = '';
-  user: USER_INTERFACE | undefined;
-
-  searchArtist(input: string) {
-    const access_token = sessionStorage.getItem('access_token');
-    if(access_token)
-      console.log(access_token+ " " + input)
-      this.authService.searchArtist(input).then(r => {
-        console.log(r);
-        this.artist = r;
-      });
-  }
 }

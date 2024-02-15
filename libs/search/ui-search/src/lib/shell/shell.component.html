@@ -1,10 +1,10 @@
-@if (sessionStorage.getItem('access_token')){
-  <mat-form-field appearance="fill">
-    <input matInput placeholder="Search for..." #input>
-  </mat-form-field>
-  <button mat-raised-button (click)="searchArtist(input.value)">Submit</button>
-  <p>{{artist}}</p>
-  <p>{{user?.displayName}}</p>
-} @else {
-  <p>Return to login!</p>
-}
+<search-search
+[artists]="(resultArtists$ | async)"
+(newEvent)="filterSearch$.next($event)"
+></search-search>
+<mat-list>
+  @for(artist of resultArtists$ | async; track artist){
+    <mat-list-item>{{artist}}</mat-list-item>
+  }
+</mat-list>
+

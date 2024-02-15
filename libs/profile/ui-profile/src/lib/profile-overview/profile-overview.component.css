@@ -1,0 +1,80 @@
+.profile-container{
+  display: flex;
+}
+
+.name-follower{
+  padding: 30px;
+  display: flex;
+  flex-flow: column;
+}
+
+/**.img-container {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px black;
+  cursor: pointer;
+}
+
+.img-container img {
+  width: 300px;
+  height: auto;
+  transform: translate(-50%, -50%) scale(0.83334);
+  position: relative;
+  top: 50%;
+  left: 50%;
+}**/
+
+.clickable-text {
+  cursor: pointer;
+}
+
+.image-container{
+  width: 250px;
+  height: 250px;
+  background-size: cover; /* Hintergrundbild so skalieren, dass der Container vollständig bedeckt wird */
+  background-position: center; /* Hintergrundbild zentrieren */
+}
+
+.circular-square {
+  width: 100%; /* Bildbreite 100% des Containers */
+  height: auto; /* Automatische Höhe */
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px black; /* Schwarzer Rand */
+  cursor: pointer;
+}
+
+.circular-landscape {
+  display: inline-block;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  box-shadow: 0 0 0 3px black; /* Schwarzer Rand */
+  overflow: hidden;
+  border-radius: 50%;
+
+}
+
+.circular-landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -100px;
+  cursor: pointer;
+}
+
+.circular-portrait {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px black; /* Schwarzer Rand */
+}
+
+.circular-portrait img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+

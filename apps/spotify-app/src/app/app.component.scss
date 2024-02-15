@@ -7,7 +7,7 @@
 .page-container{
   position: absolute;
   top:0;
-  left: 10px;
+  left: 0;
   right: 0;
   bottom: 0;
 }
@@ -15,10 +15,12 @@
 mat-toolbar{
   display: flex;
   justify-content: space-between;
+  height: 7%;
 }
 
 .layout-box{
-  display: flex
+  display: flex;
+  height: 93%;
 }
 
 .toggle-menu{
@@ -26,32 +28,21 @@ mat-toolbar{
   align-content: start;
 }
 
-mat-toolbar{
+
+mat-sidenav-container{
+  display: flex;
   width: 100%;
 }
 
-mat-sidenav-container{
-  height: 80vh;
-}
-
 .sidebar{
-  width: 30vh;
-  overflow: auto;
-  position: absolute;
+  display: flex;
+  width: 300px;
 }
 
 .router{
+  display: flex;
   padding: 10px;
-  flex: 1;
-  overflow: auto;
-  position: relative;
 }
 
 
-router-content{
-  position: absolute;
-  top:0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+

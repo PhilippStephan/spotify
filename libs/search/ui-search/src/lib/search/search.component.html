@@ -1,0 +1,24 @@
+<form class="example-form">
+<mat-form-field class="example-full-width">
+  <input #searchInput
+        type="text"
+         placeholder="Search Artist..."
+         aria-label="Artist"
+         matInput
+         (input)="loading=true; emptyResult=false;newEvent.emit(searchInput.value)"/>
+          @if (searchInput.value){
+          <button
+            (click)="clearInput($event)"
+            aria-label="Clear"
+            mat-icon-button
+            matSuffix>
+            <mat-icon>clear</mat-icon>
+          </button>
+        } @else {
+          <button mat-icon-button matSuffix>
+            <mat-icon>search</mat-icon>
+          </button>
+        }
+</mat-form-field>
+</form>
+

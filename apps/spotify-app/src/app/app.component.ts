@@ -46,7 +46,7 @@ export class AppComponent implements OnInit{
   activatedRoute = inject(ActivatedRoute);
 
 
-  protected readonly sessionStorage = sessionStorage;
+  protected readonly storage = window.localStorage;
 
   ngOnInit() {
     this.router.events.subscribe(event => {

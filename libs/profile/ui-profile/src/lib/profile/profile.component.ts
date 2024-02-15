@@ -7,11 +7,12 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {LogoutDialogComponent} from "profile/ui-logout";
 import {MatTooltip} from "@angular/material/tooltip";
+import {MatDivider} from "@angular/material/divider";
 
 @Component({
   selector: 'profile-profile',
   standalone: true,
-  imports: [CommonModule, MatIcon, MatIconButton, MatMenu, MatButton, MatMenuItem, MatMenuTrigger, RouterLink, MatTooltip],
+  imports: [CommonModule, MatIcon, MatIconButton, MatMenu, MatButton, MatMenuItem, MatMenuTrigger, RouterLink, MatTooltip, MatDivider],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -20,8 +21,8 @@ export class ProfileComponent {
 
   router= inject(Router)
   route = inject(ActivatedRoute);
-  protected readonly sessionStorage = sessionStorage;
   protected readonly navigator = navigator;
+  protected storage = window.localStorage;
 
 
   constructor(public dialog: MatDialog) {}
@@ -29,9 +30,14 @@ export class ProfileComponent {
   openDialog(): void {
     this.dialog.open(LogoutDialogComponent);
   }
-  navigateTo(input:string){
-    window.open(input);
+  navigateTo(input:string, method?: string){
+    if(method){
+      window.open(input, method);
+    }
   }
 
 
+  navigateToIntern(input: string) {
+    this.router.navigate([input]);
+  }
 }

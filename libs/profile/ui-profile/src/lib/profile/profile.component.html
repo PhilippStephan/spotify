@@ -1,7 +1,7 @@
 <div class="container">
-  @if (sessionStorage.getItem('image')){
-    <button style="border: none;" class="icon-button" matTooltip="{{sessionStorage.getItem('display_name')}}" [matMenuTriggerFor]="menu">
-      <img class="button-icon" src="{{sessionStorage.getItem('image')}}" alt="Icon">
+  @if (storage.getItem('image')){
+    <button style="border: none;" class="icon-button" matTooltip="{{storage.getItem('display_name')}}" [matMenuTriggerFor]="menu">
+      <img class="button-icon" src="{{storage.getItem('image')}}" alt="Icon">
     </button>
   } @else {
     <button mat-button disabled>
@@ -12,7 +12,8 @@
 
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="navigateTo('https://www.spotify.com/de/account/overview/')">Account</button>
-  <button mat-menu-item (click)="navigateTo('/profile')">Profile</button>
+  <button mat-menu-item (click)="navigateToIntern('/profile')">Profile</button>
+  <mat-divider></mat-divider>
   <button mat-menu-item (click)="openDialog()">Log out</button>
 </mat-menu>
 

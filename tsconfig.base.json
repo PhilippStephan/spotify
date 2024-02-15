@@ -30,6 +30,7 @@
       "profile/domain": ["libs/profile/domain/src/index.ts"],
       "profile/ui-logout": ["libs/profile/ui-logout/src/index.ts"],
       "profile/ui-profile": ["libs/profile/ui-profile/src/index.ts"],
+      "profile/util-fetch-data": ["libs/profile/util-fetch-data/src/index.ts"],
       "search/domain": ["libs/search/domain/src/index.ts"],
       "search/ui-search": ["libs/search/ui-search/src/index.ts"],
       "shared/domain": ["libs/shared/domain/src/index.ts"],
