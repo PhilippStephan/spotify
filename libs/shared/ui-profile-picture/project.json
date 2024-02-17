@@ -1,0 +1,9 @@
+{
+  "name": "shared-ui-profile-picture",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-profile-picture/src",
+  "prefix": "profile-picture",
+  "tags": ["domain:shared", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

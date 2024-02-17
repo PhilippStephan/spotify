@@ -1,0 +1,35 @@
+@if (imageSrc){
+  <img [src]="imageSrc" (load)="onImageLoad($event)" alt="Icon" style="display: none;">
+  @defer (){
+    @if (imageSize === 40){
+      <figure [style.width.px]="40" [style.height.px]="40">
+        <img [src]="imageSrc"  alt="User Avatar" class="rounded-img" [ngClass]="{'show-pointer': showPointer}" />
+      </figure>
+    } @else if (imageSize === 250){
+      <figure [style.width.px]="250" [style.height.px]="250">
+        <img [src]="imageSrc"  alt="User Avatar" class="rounded-img" [ngClass]="{'show-pointer': showPointer}"/>
+      </figure>
+    }@else if (imageSize === 150){
+      <figure [style.width.px]="150" [style.height.px]="150">
+        <img [src]="imageSrc"  alt="User Avatar" class="rounded-img" [ngClass]="{'show-pointer': showPointer}"/>
+      </figure>
+    }
+
+    <!--<div [style.width.px]="imageSize" [style.height.px]="imageSize">
+      @if (isSquare){
+          <img [src]="imageSrc" alt="Icon" class="circular-square-img" [ngClass]="{'show-pointer': true}">
+      }
+      @else if (isLandscape){
+          <div class="circular-landscape">
+            <img [src]="imageSrc" alt="Icon" [ngClass]="{'show-pointer': true}">
+          </div>
+      }
+      @else if (isPortrait){
+          <div class="circular-portrait">
+            <img [src]="imageSrc" alt="Icon" [ngClass]="{'show-pointer': true}">
+          </div>
+      }
+    </div>!-->
+  }
+
+}

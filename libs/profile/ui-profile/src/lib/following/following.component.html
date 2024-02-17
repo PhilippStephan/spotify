@@ -1,1 +1,17 @@
-<p>following works!</p>
+<h3>Following</h3>
+@if(artists){
+  <div class="following-container">
+    <button #leftbutton mat-icon-button class="scroll-button left" (click)="scrollLeft()" [disabled]="leftIsDisabled">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <div class="card-container" #container (window:resize)="onResize($event)">
+        @for (artist of artists; track artist) {
+            <artist-card-card class="card" [artist]="artist"></artist-card-card>
+        }
+    </div>
+    <button #rightbutton mat-icon-button class="scroll-button right" (click)="scrollRight()" [disabled]="rightIsDisabled!">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+}
+

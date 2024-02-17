@@ -1,0 +1,9 @@
+{
+  "name": "shared-ui-artist-card",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-artist-card/src",
+  "prefix": "artist-card",
+  "tags": ["domain:shared", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

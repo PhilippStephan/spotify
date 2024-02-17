@@ -1,28 +1,21 @@
-<h1>Profile</h1>
-<div class="profile-container">
-  @if (user?.images){
-    <img #imgElement [src]="user!.images[1].url" (load)="onImageLoad($event)" alt="Icon" style="display: none;">
-    @defer (){
-      @if (isSquare){
-        <div class="image-container">
-          <img [src]="user!.images[1].url" alt="Icon" class="circular-square">
-        </div>
-      }
-      @else if (isLandscape){
-        <div class="circular-landscape">
-          <img [src]="user!.images[1].url" alt="Icon">
-        </div>
-      } @else if (isPortrait){
-        <div class="circular-portrait">
-          <img [src]="user!.images[1].url"  alt="Icon">
-        </div>
-      }
+@if (user){
+  <h1>Profile</h1>
+  <div class="profile-container">
+    @if (user!.images[1]!.url){
+      <div (click)="alert('Overview')">
+        <profile-picture-profile-pic
+          [imageSrc]="(user!.images[1]!.url)"
+          [imageSize]="250"
+          [showPointer]=true>
+        </profile-picture-profile-pic>
+      </div>
     }
-  }
-  <div class="name-follower">
-    <h2 class="clickable-text" onclick="">
-      {{user?.displayName}}
-    </h2>
-    <p>Follower: {{user?.followers}}</p>
+    <div class="name-follower">
+      <h2 class="clickable-text" onclick="">
+        {{user.displayName}}
+      </h2>
+      <p>Follower: {{user.followers}}</p>
+    </div>
   </div>
-</div>
+}
+

@@ -8,11 +8,12 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {LogoutDialogComponent} from "profile/ui-logout";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatDivider} from "@angular/material/divider";
+import {ProfilePicComponent} from "shared/ui-profile-picture";
 
 @Component({
   selector: 'profile-profile',
   standalone: true,
-  imports: [CommonModule, MatIcon, MatIconButton, MatMenu, MatButton, MatMenuItem, MatMenuTrigger, RouterLink, MatTooltip, MatDivider],
+  imports: [CommonModule, MatIcon, MatIconButton, MatMenu, MatButton, MatMenuItem, MatMenuTrigger, RouterLink, MatTooltip, MatDivider, ProfilePicComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -40,4 +41,6 @@ export class ProfileComponent {
   navigateToIntern(input: string) {
     this.router.navigate([input]);
   }
+
+    protected readonly alert = alert;
 }

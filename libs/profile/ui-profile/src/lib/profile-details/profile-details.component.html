@@ -1,5 +1,32 @@
-<profile-profile-overview [user]="(user$ | async)"></profile-profile-overview>
-<profile-following></profile-following>
-<profile-top-albums></profile-top-albums>
-<profile-top-artists></profile-top-artists>
-<profile-top-tracks></profile-top-tracks>
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <profile-profile-overview [user]="(user$ | async)"></profile-profile-overview>
+  <mat-divider></mat-divider>
+      <profile-following [artists]="(followingArtists$ | async)"></profile-following>
+    </mat-card-content>
+  </mat-card>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <mat-card-content>
+      <profile-top-albums></profile-top-albums>
+    </mat-card-content>
+  </mat-card>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <mat-card-content>
+      <profile-top-artists></profile-top-artists>
+    </mat-card-content>
+  </mat-card>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <mat-card-content>
+      <profile-top-tracks></profile-top-tracks>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+</div>
+

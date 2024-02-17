@@ -34,6 +34,10 @@
       "search/domain": ["libs/search/domain/src/index.ts"],
       "search/ui-search": ["libs/search/ui-search/src/index.ts"],
       "shared/domain": ["libs/shared/domain/src/index.ts"],
+      "shared/ui-artist-card": ["libs/shared/ui-artist-card/src/index.ts"],
+      "shared/ui-profile-picture": [
+        "libs/shared/ui-profile-picture/src/index.ts"
+      ],
       "side-navigation/domain": ["libs/side-navigation/domain/src/index.ts"],
       "side-navigation/ui-side-nav": [
         "libs/side-navigation/ui-side-nav/src/index.ts"

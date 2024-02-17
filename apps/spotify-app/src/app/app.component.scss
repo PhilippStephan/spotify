@@ -1,48 +1,86 @@
-:host{
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.page-container{
+.page-container {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
 
-mat-toolbar{
+.mat-toolbar {
   display: flex;
   justify-content: space-between;
   height: 7%;
 }
 
-.layout-box{
+.layout-box {
   display: flex;
   height: 93%;
 }
 
-.toggle-menu{
+.toggle-menu {
   display: flex;
   align-content: start;
 }
 
+mat-sidenav-container {
+  display: flex;
+  width: 100%; /* Stretching across the entire width */
+}
 
-mat-sidenav-container{
+.mat-drawer {
+  width: 25%;
+  max-width: 300px;
+}
+
+.page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  height: 7%;
+}
+
+.layout-box {
+  display: flex;
+  height: 93%;
+}
+
+.toggle-menu {
+  display: flex;
+  align-content: start;
+}
+
+mat-sidenav-container {
   display: flex;
   width: 100%;
 }
 
-.sidebar{
-  display: flex;
-  width: 300px;
+.mat-drawer {
+  width: 25%;
+  max-width: 300px;
 }
 
-.router{
-  display: flex;
+.router {
+  flex-grow: 1;
   padding: 10px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 515px) {
+  .mat-drawer {
+    width: 60px;
+  }
 }
 
 
-
+@media screen and (max-width: 515px) {
+  .mat-drawer {
+    width: 60px;
+  }
+}

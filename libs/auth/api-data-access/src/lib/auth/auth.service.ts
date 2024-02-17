@@ -39,8 +39,8 @@ export class AuthService {
       body: params
     });
     const {access_token, expires_in, refresh_token} = await result.json();
-    console.log(access_token);
-    console.log(refresh_token);
+    console.log("access: " + access_token);
+    console.log("refresh: " + refresh_token);
     window.localStorage['access_token'] = access_token;
     window.localStorage['refresh_token'] = refresh_token;
     window.localStorage['expires_at'] = Date.now() + expires_in * 1000;

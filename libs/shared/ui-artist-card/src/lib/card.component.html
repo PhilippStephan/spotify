@@ -1,0 +1,14 @@
+@if (artist){
+  <mat-card class="card-container">
+      @if (artist.images?.[2]?.url){
+        <mat-card-content>
+          <profile-picture-profile-pic
+            [imageSrc]="artist.images?.[2]?.url"
+          [imageSize]="150">
+          </profile-picture-profile-pic>
+        </mat-card-content>
+        <mat-card-header>{{artist!.name}}</mat-card-header>
+      }
+  </mat-card>
+}
+

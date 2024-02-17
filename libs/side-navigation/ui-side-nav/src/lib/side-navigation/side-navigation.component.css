@@ -1,9 +1,18 @@
 
+
 .list-item{
   display: flex;
   align-items: center;
 }
 
-.list-item .text{
-  margin-left: 20px;
+.text{
+  padding: 10px;
+}
+
+@media screen and (max-width: 515px ) {
+
+  .text{
+    display: none;
+  }
+
 }
