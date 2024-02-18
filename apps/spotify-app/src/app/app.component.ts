@@ -51,7 +51,7 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        this.showSideNav = !event.url.includes('/login'); // Hide side nav for login route
+        this.showSideNav = !event.url.includes('/login');
       }
     });
   }

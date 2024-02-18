@@ -2,13 +2,17 @@
   display: flex;
   align-items: center;
   max-width: 200px;
-  max-height: 200px;
-}
 
+}
 
 .profile-pic-container{
   display: flex;
   justify-content: center;
   max-width: 150px;
   max-height: 150px;
+}
+
+.follow-button{
+  padding-top: 10px;
+  padding-bottom: 5px;
 }

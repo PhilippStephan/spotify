@@ -6,4 +6,5 @@ export interface ARTIST_INTERFACE  {
   followers?: number,
   genres?: string[],
   images?: IMAGE[],
+  following?: boolean
 }

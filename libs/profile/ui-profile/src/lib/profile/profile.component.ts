@@ -1,10 +1,10 @@
-import {Component, Inject, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatIcon} from "@angular/material/icon";
 import {MatButton, MatIconButton} from "@angular/material/button";
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import { Router, RouterLink} from "@angular/router";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {LogoutDialogComponent} from "profile/ui-logout";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatDivider} from "@angular/material/divider";
@@ -19,14 +19,11 @@ import {ProfilePicComponent} from "shared/ui-profile-picture";
 })
 export class ProfileComponent {
 
-
-  router= inject(Router)
-  route = inject(ActivatedRoute);
+  dialog = inject(MatDialog);
+  router= inject(Router);
   protected readonly navigator = navigator;
   protected storage = window.localStorage;
 
-
-  constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     this.dialog.open(LogoutDialogComponent);

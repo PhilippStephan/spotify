@@ -23,15 +23,6 @@ export class LogoutDialogComponent {
 
   router = inject(Router)
   authService=inject(AuthService)
-  constructor(
-    public dialogRef: MatDialogRef<ProfileComponent>,
-  ) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-
 
   logout(){
     this.authService.removeSession()

@@ -1,6 +1,6 @@
-@if (user){
-  <h1>Profile</h1>
-  <div class="profile-container">
+<h1>Profile</h1>
+<div class="profile-container">
+  @if (user){
     @if (user!.images[1]!.url){
       <div (click)="alert('Overview')">
         <profile-picture-profile-pic
@@ -10,12 +10,19 @@
         </profile-picture-profile-pic>
       </div>
     }
-    <div class="name-follower">
+  }
+  <div class="name-follower">
+    @if (user){
       <h2 class="clickable-text" onclick="">
-        {{user.displayName}}
-      </h2>
-      <p>Follower: {{user.followers}}</p>
-    </div>
-  </div>
-}
+      {{user.displayName}}
+    </h2>
+    }
+    <span class="follower-count">
+      <p>Follower:</p>
+      @if(user){
+        <p>{{user.followers}}</p>
+      }
+    </span>
 
+  </div>
+</div>

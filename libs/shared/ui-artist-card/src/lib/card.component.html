@@ -1,5 +1,6 @@
 @if (artist){
   <mat-card class="card-container">
+    <h4>{{artist!.name}}</h4>
       @if (artist.images?.[2]?.url){
         <mat-card-content>
           <profile-picture-profile-pic
@@ -7,8 +8,14 @@
           [imageSize]="150">
           </profile-picture-profile-pic>
         </mat-card-content>
-        <mat-card-header>{{artist!.name}}</mat-card-header>
       }
+    <div class="follow-button">
+      @if(artist!.following){
+        <button mat-stroked-button>Following</button>
+      } @else {
+        <button mat-stroked-button>Follow</button>
+      }
+    </div>
   </mat-card>
 }
 

@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {AuthService} from "auth/api-data-access";
 import {ARTIST_INTERFACE, USER_INTERFACE} from "shared/domain";
 import {HttpClient} from "@angular/common/http";
+import {forEach} from "@angular-devkit/schematics";
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,42 @@ export class RequestDataService {
         images: artist.images
       }));
       return resultArtists.slice(0,10);
+    } catch (error) {
+      return [];
+    }
+  }
+
+
+  async getTopArtists(): Promise<ARTIST_INTERFACE[]> {
+    if (!this.authService.checkTokens()) {
+      return [];
+    }
+    try {
+      const result = await fetch(`${this.API_BASE_URL}/me/top/artists`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+        }
+      });
+      if (!result.ok) {
+        console.log('Fehler beim Abrufen der Daten');
+      }
+      const following = await this.getFollowing();
+      const data = await result.json();
+      const artists = data?.items || [];
+      const topArtists: ARTIST_INTERFACE[] = artists.map((artist: any) => ({
+        id: artist.id,
+        name: artist.name,
+        images: artist.images
+      }));
+      topArtists.forEach((artist)=> {
+        following.forEach((result) => {
+          if (result.id === artist.id) {
+            artist.following = true;
+          }
+        });
+      });
+      return topArtists;
     } catch (error) {
       return [];
     }

@@ -1,0 +1,25 @@
+:host ::ng-deep .container{
+  width: 100%;
+  max-height: 70vh;
+  color: #ffffff;
+}
+
+
+.top-artists-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.following-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
