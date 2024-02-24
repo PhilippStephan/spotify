@@ -1,4 +1,28 @@
-
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+* {
+  -webkit-user-drag: none; /* Webkit-Browser (Chrome, Safari) */
+  -webkit-user-select: none; /* Webkit-Browser (Chrome, Safari) */
+  -moz-user-select: none; /* Mozilla-Browser (Firefox) */
+  -ms-user-select: none; /* Internet Explorer */
+  user-select: auto; /* Standard */
+}
+
+
+
+
+/* Fett */
+.font-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* oder 'bold' */
+}
+
+/* Dünn */
+.font-thin {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}

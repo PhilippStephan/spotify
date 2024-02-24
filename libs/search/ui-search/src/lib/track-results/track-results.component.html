@@ -1,0 +1,12 @@
+<h2>Tracks</h2>
+@if (tracks){
+  @if (tracks.length > 0){
+    <div class="card-container">
+        <track-list-track-list [tracks]="tracks.slice(0,5)"></track-list-track-list>
+    </div>
+  }@else {
+    <p>There are no results matching your input!</p>
+  }
+}
+
+

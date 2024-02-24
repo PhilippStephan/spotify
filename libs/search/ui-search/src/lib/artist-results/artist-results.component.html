@@ -1,0 +1,13 @@
+<h2>Artists</h2>
+@if (artists){
+  @if (artists.length > 0){
+    <div class="card-container">
+      @for (artist of artists!; track artist){
+        <artist-card-card [artist]="artist"></artist-card-card>
+      }
+    </div>
+  }@else {
+    <p>There are no results matching your input!</p>
+  }
+}
+

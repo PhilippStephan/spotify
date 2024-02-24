@@ -1,0 +1,9 @@
+{
+  "name": "shared-ui-track-list",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-track-list/src",
+  "prefix": "track-list",
+  "tags": ["domain:shared", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

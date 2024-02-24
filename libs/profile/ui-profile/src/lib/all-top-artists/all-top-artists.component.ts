@@ -9,7 +9,8 @@ import {Observable} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 
 export interface DialogData {
-  artists: Observable<ARTIST_INTERFACE[]>;
+  artists: Observable<ARTIST_INTERFACE[] |null>;
+  header: string
 }
 @Component({
   selector: 'profile-all-top-artists',

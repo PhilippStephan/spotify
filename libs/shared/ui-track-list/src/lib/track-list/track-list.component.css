@@ -1,0 +1,132 @@
+.track-row{
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+}
+
+.track-row:hover{
+  background-color: #2c2b2b;
+
+   .more-actions{
+     opacity: 1;
+   }
+}
+
+.action{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action play-button-play-button{
+  display: none;
+}
+
+.action:hover play-button-play-button{
+  display: flex;
+}
+
+.action:hover p{
+  display: none;
+}
+
+
+.image-name-explicit-artists{
+  display: flex;
+  justify-content: start;
+  width: 50%;
+}
+
+.image-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image{
+  height: 40px;
+  width: 40px;
+  border-radius: 10%;
+}
+
+.name-explicit-artists{
+  display: flex;
+  padding-left: 10px;
+  flex-flow: column;
+}
+
+.track-name{
+  height: 22px;
+}
+
+
+.explicit-name{
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.explicit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.artists{
+  cursor: pointer;
+}
+
+.artists:hover{
+  text-decoration: underline;
+}
+
+.track-album{
+  width: 30%;
+  cursor: pointer;
+}
+
+.track-album:hover{
+  text-decoration: underline;
+}
+
+.actions-time{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  width: 20%;
+}
+
+.actions-time-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.saved{
+  display: flex;
+  justify-content: center;
+  width: 33%;
+}
+
+.time{
+  display: flex;
+  justify-content: center;
+  width: 33%;
+}
+
+.more-actions{
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  opacity: 0;
+  cursor: pointer;
+}

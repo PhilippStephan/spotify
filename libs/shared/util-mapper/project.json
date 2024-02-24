@@ -1,0 +1,9 @@
+{
+  "name": "shared-util-mapper",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/util-mapper/src",
+  "prefix": "mapper",
+  "tags": ["domain:shared", "type:util"],
+  "projectType": "library",
+  "targets": {}
+}

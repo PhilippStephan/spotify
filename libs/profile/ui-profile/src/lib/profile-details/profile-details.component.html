@@ -2,25 +2,11 @@
   <mat-card>
     <mat-card-content>
       <profile-profile-overview [user]="(user$ | async)"></profile-profile-overview>
-  <mat-divider></mat-divider>
-      <profile-top-artists [artists]="(followingArtists$)"></profile-top-artists>
+      <mat-divider></mat-divider>
+      <profile-top-artists [artists$]="topArtists$"></profile-top-artists>
+      <profile-top-tracks [topTracks]="(topTracks$ | async)"></profile-top-tracks>
+      <profile-following-artists [artists$]="followingArtists$"></profile-following-artists>
     </mat-card-content>
   </mat-card>
-  <mat-divider></mat-divider>
-  <mat-card>
-    <mat-card-content>
-      <profile-top-albums></profile-top-albums>
-    </mat-card-content>
-  </mat-card>
-  <mat-divider></mat-divider>
-  <mat-card>
-    <mat-card-content>
-      <profile-top-tracks></profile-top-tracks>
-    </mat-card-content>
-  </mat-card>
-
-
-
-
 </div>
 

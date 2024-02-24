@@ -1,0 +1,14 @@
+<h2>Albums</h2>
+@if (albums){
+  @if (albums.length > 0){
+    <div class="card-container">
+      @for (album of albums!; track album){
+        <album-album-card [album]="album"></album-album-card>
+      }
+    </div>
+  }@else {
+    <p>There are no results matching your input!</p>
+  }
+}
+
+

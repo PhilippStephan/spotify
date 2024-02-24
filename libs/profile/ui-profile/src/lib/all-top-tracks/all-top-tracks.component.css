@@ -1,0 +1,21 @@
+:host ::ng-deep .container{
+  width: 90vh;
+  max-height: 70vh;
+  color: #ffffff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.top-tracks-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.tracks-container{
+
+}
+
+

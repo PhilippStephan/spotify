@@ -1,0 +1,59 @@
+.card-container{
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.card{
+  width: 180px;
+  height: 250px;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px) scale(1.05);
+}
+
+.card-content{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.album-cover{
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+}
+
+.no-picture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-icon {
+  font-size: 180px;
+}
+
+.truncate-text {
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.year-artists{
+  display: flex;
+  flex-direction: row;
+}
+
+.artists{
+  cursor: pointer;
+}
+
+.artists:hover{
+  text-decoration: underline;
+}

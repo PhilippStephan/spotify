@@ -1,0 +1,9 @@
+{
+  "name": "shared-ui-play-button",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-play-button/src",
+  "prefix": "play-button",
+  "tags": ["domain:shared", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

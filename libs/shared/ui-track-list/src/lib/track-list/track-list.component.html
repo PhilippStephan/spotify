@@ -1,0 +1,54 @@
+@if(showHeadline){
+  <div class="track-row">
+    <div class="action">#</div>
+    <div class="image-name-explicit-artists">
+      <div>Title</div>
+    </div>
+    <div class="track-album">Album</div>
+    <div class="actions-time-header"><mat-icon>access_time</mat-icon></div>
+  </div>
+  <mat-divider></mat-divider>
+}
+
+@if (tracks){
+  @for (track of tracks; track tracks.indexOf(track)){
+    <div class="track-row">
+      <div class="action">
+        <play-button-play-button></play-button-play-button>
+        <p>{{tracks.indexOf(track) + 1}}</p>
+      </div>
+      <div class="image-name-explicit-artists">
+        @if(track.albumImages){
+          @if (track.albumImages[0]){
+            <div class="image-container">
+              <img src="{{track.albumImages[0].url}}" alt="" class="image">
+            </div>
+          }
+        }
+        <div class="name-explicit-artists">
+          <div class="track-name">{{track.name}}</div>
+          <span class="explicit-name">
+            @if (track.explicit){
+              <mat-icon class="explicit">explicit</mat-icon>
+            }
+            @if (track.artists){
+                @for (artist of track.artists.slice(0,3); let i = $index; track artist){
+                  <div class="artists font-thin">
+                    <a>{{artist.name}}</a>{{i < (track.artists.slice(0,3).length - 1) ? ',' : ''}}
+                  </div>
+                }
+            }
+          </span>
+        </div>
+      </div>
+      <a class="track-album">{{track.albumName}}</a>
+      <div class="actions-time truncate-text">
+        <mat-icon class="saved"></mat-icon>
+        <p class="time">{{formatTrackLength(track.duration_ms)}}</p>
+        <mat-icon class="more-actions">more_horiz</mat-icon>
+      </div>
+    </div>
+  }
+}
+
+

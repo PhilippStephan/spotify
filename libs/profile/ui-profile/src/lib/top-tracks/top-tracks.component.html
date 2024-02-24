@@ -1,1 +1,7 @@
-<p>top-tracks works!</p>
+<div class="top-tracks-bar">
+  <h3>Top tracks last 30 days</h3>
+  <button mat-button class="all-button" (click)="openDialog()">See all</button>
+</div>
+@if (topTracks){
+  <track-list-track-list [tracks]="topTracks.slice(0,5)"></track-list-track-list>
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopAlbumsComponent } from './top-albums.component';
+import { PlayButtonComponent } from './play-button.component';
 
-describe('TopAlbumsComponent', () => {
-  let component: TopAlbumsComponent;
-  let fixture: ComponentFixture<TopAlbumsComponent>;
+describe('PlayButtonComponent', () => {
+  let component: PlayButtonComponent;
+  let fixture: ComponentFixture<PlayButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TopAlbumsComponent]
+      imports: [PlayButtonComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TopAlbumsComponent);
+    fixture = TestBed.createComponent(PlayButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

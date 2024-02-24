@@ -2,10 +2,10 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
-  ElementRef,
+  ElementRef, EventEmitter,
   HostListener, inject, Injectable,
   Input,
-  OnInit,
+  OnInit, Output,
   ViewChild
 } from '@angular/core';
 import {CardComponent} from "shared/ui-artist-card";
@@ -17,6 +17,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {AllTopArtistsComponent} from "../all-top-artists/all-top-artists.component";
 import {Observable} from "rxjs";
 import {AsyncPipe} from "@angular/common";
+import {RequestDataService} from "auth/api-data-access";
+import {ArtistsDisplayComponent} from "../artists-display/artists-display.component";
 
 @Component({
   selector: 'profile-top-artists',
@@ -26,7 +28,8 @@ import {AsyncPipe} from "@angular/common";
     MatIcon,
     MatIconButton,
     MatButton,
-    AsyncPipe
+    AsyncPipe,
+    ArtistsDisplayComponent
   ],
   templateUrl: './top-artists.component.html',
   styleUrl: './top-artists.component.css'
@@ -35,59 +38,18 @@ import {AsyncPipe} from "@angular/common";
 @Injectable({
   providedIn: 'root'
 })
-export class TopArtistsComponent implements OnInit, AfterViewInit {
+export class TopArtistsComponent{
 
-  @Input() artists!: Observable<ARTIST_INTERFACE[] | null>;
-  @ViewChild('leftbutton') leftButton!: ElementRef;
-  @ViewChild('rightbutton') rightButton!: ElementRef;
-  @ViewChild('container') container!: ElementRef;
+  @Input()
+  artists$!: Observable<ARTIST_INTERFACE[] | null>;
 
-  dialog = inject(MatDialog);
-
-  leftIsDisabled: boolean = true;
-  rightIsDisabled: boolean = false;
-
-  constructor(private cdr: ChangeDetectorRef) {}
-
-  ngOnInit() {
-    this.artists.subscribe(() => {
-      setTimeout(() => {
-      this.updateDisabled();
-    }, 300);
-    });
-
-  }
-
-  ngAfterViewInit() {
-    this.cdr.detectChanges();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.updateDisabled(); // Überprüfen Sie den Status der Buttons nach dem Ändern der Fenstergröße
-  }
-
-  scrollLeft() {
-    this.container.nativeElement.scrollLeft -= 190; // Scrollen nach links
-    this.updateDisabled();
-  }
-
-  scrollRight() {
-    this.container.nativeElement.scrollLeft += 190; // Scrollen nach rechts
-    this.updateDisabled();
-  }
-
-  updateDisabled() {
-    this.leftIsDisabled = this.container.nativeElement.scrollLeft === 0;
-    this.rightIsDisabled =
-      this.container.nativeElement.scrollLeft +
-      this.container.nativeElement.offsetWidth >=
-      this.container.nativeElement.scrollWidth;
-  }
+  dialog = inject(MatDialog)
 
   openDialog(): void {
     this.dialog.open(AllTopArtistsComponent, {data: {
-      artists: this.artists
+      artists: this.artists$,
+        header: "Top artists last 30 days"
       }});
   }
+
 }

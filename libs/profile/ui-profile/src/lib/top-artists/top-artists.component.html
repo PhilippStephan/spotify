@@ -1,24 +1,8 @@
 <div class="top-artists-bar">
-  <h3>Top Artists this month</h3>
+  <h3>Top artists last 30 days</h3>
   <button mat-button class="all-button" (click)="openDialog()">See all</button>
 </div>
+<profile-artists-display class="artists-container" [artists]="artists$"></profile-artists-display>
 
-@if(artists){
-  <div class="following-container">
-    <button #leftbutton mat-icon-button class="scroll-button left" (click)="scrollLeft()" [disabled]="leftIsDisabled">
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <div class="card-container" #container (window:resize)="onResize($event)">
-      @for (artist of (artists | async)?.slice(0,6); track artist) {
-        <artist-card-card class="card" [artist]="artist"></artist-card-card>
-      }
-    </div>
-    <button #rightbutton mat-icon-button class="scroll-button right" (click)="scrollRight()" [disabled]="rightIsDisabled!">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
-  </div>
-} @else {
-  <p>No data found!</p>
-}
 
 

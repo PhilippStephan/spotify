@@ -1,0 +1,9 @@
+{
+  "name": "shared-ui-album",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-album/src",
+  "prefix": "album",
+  "tags": ["domain:shared", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

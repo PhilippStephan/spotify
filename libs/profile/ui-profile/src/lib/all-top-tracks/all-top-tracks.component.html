@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="top-tracks-bar">
+    <h1>{{ data.header }}</h1>
+    <button mat-button class="all-button" (click)="this.dialogRef.close();">Close</button>
+  </div>
+    <track-list-track-list class="tracks-container" [tracks]="data.tracks" [showHeadline]="true"></track-list-track-list>
+</div>

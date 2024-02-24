@@ -6,7 +6,6 @@
   width: 100%; /* Bildbreite 100% des Containers */
   height: auto; /* Automatische Höhe */
   border-radius: 50%;
-  box-shadow: 0 0 0 3px black; /* Schwarzer Rand */
   object-fit: cover; /* Das Bild innerhalb des Containers zentrieren und zuschneiden */
 }
 
@@ -17,7 +16,6 @@
   height: 100%;
   overflow: hidden;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px black; /* Schwarzer Rand */
 }
 
 .circular-landscape img,
@@ -36,7 +34,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  box-shadow: 0 0 0 3px black; /* Schwarzer Rand */
 }
 
 figure {

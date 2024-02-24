@@ -1,8 +1,10 @@
 import {inject, Injectable} from '@angular/core';
 import {AuthService} from "auth/api-data-access";
-import {ARTIST_INTERFACE, USER_INTERFACE} from "shared/domain";
+import {ARTIST_INTERFACE, TRACK_INTERFACE, USER_INTERFACE} from "shared/domain";
 import {HttpClient} from "@angular/common/http";
-import {forEach} from "@angular-devkit/schematics";
+import {AlbumMapperService, ArtistMapperService, TrackMapperService} from "shared/util-mapper";
+import {EMPTY} from "rxjs";
+import {ALBUM_INTERFACE} from "../../../../../shared/domain/src/lib/model/ALBUM_INTERFACE";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,9 @@ import {forEach} from "@angular-devkit/schematics";
 export class RequestDataService {
 
   http = inject(HttpClient)
+  artistMapper = inject(ArtistMapperService);
+  albumMapper = inject(AlbumMapperService);
+  trackMapper = inject(TrackMapperService);
 
   authService = inject(AuthService);
   API_BASE_URL: string = 'https://api.spotify.com/v1';
@@ -37,7 +42,95 @@ export class RequestDataService {
     return null;
   }
 
-  async searchArtist(input: string) {
+  async searchArtists(input: string): Promise<ARTIST_INTERFACE[] | null> {
+    if (!this.authService.checkTokens()) {
+      return [];
+    }
+    if(!input){
+      return [];
+    }
+    try {
+      const result = await fetch(`${this.API_BASE_URL}/search?type=artist&q=${input}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+        }
+      });
+      if (!result.ok) {
+        console.log('Fehler beim Abrufen der Daten');
+      }
+      const data = await result.json();
+      const artists = data?.artists?.items || [];
+      const resultArtists: ARTIST_INTERFACE[] | null = [];
+      if(artists){
+        artists.forEach((artist: any) => resultArtists.push(this.artistMapper.mapToArtist(artist)));
+      }
+      return resultArtists;
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async searchAlbums(input: string) {
+    if (!this.authService.checkTokens()){
+      return [];
+    }
+    if(!input){
+      return [];
+    }
+    try {
+      const result = await fetch(`${this.API_BASE_URL}/search?type=album&q=${input}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+        }
+      });
+      if (!result.ok) {
+        console.log('Fehler beim Abrufen der Daten');
+      }
+      const data = await result.json();
+      const albums = data?.albums?.items || [];
+      const resultAlbums: ALBUM_INTERFACE[] | null = [];
+      if(albums){
+        albums.forEach((album: any) => resultAlbums.push(this.albumMapper.mapToAlbum(album)));
+      }
+      console.log(resultAlbums)
+      return resultAlbums;
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async searchTracks(input: string) {
+    if (!this.authService.checkTokens()){
+      return [];
+    }
+    if(!input){
+      return [];
+    }
+    try {
+      const result = await fetch(`${this.API_BASE_URL}/search?type=track&q=${input}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+        }
+      });
+      if (!result.ok) {
+        console.log('Fehler beim Abrufen der Daten');
+      }
+      const data = await result.json();
+      const tracks = data?.tracks?.items || [];
+      const resultTracks: TRACK_INTERFACE[] | null = [];
+      if(tracks){
+        tracks.forEach((track: any) => resultTracks.push(this.trackMapper.mapToTrack(track)));
+      }
+      return resultTracks;
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async searchPlaylists(input: string) {
     if (input) {
       if (this.authService.checkTokens()) {
         const result = await fetch(`${this.API_BASE_URL}/search?type=artist&q=${input}`, {
@@ -75,24 +168,22 @@ export class RequestDataService {
       }
       const data = await result.json();
       const artists = data?.artists?.items || [];
-      const resultArtists: ARTIST_INTERFACE[] = artists.map((artist: any) => ({
-        id: artist.id,
-        name: artist.name,
-        images: artist.images
-      }));
-      return resultArtists.slice(0,10);
+      const resultArtists: ARTIST_INTERFACE[] | null = [];
+      if(artists){
+        artists.forEach((artist: any) => resultArtists.push(this.artistMapper.mapToArtist(artist)));
+      }
+      return resultArtists;
     } catch (error) {
       return [];
     }
   }
-
 
   async getTopArtists(): Promise<ARTIST_INTERFACE[]> {
     if (!this.authService.checkTokens()) {
       return [];
     }
     try {
-      const result = await fetch(`${this.API_BASE_URL}/me/top/artists`, {
+      const result = await fetch(`${this.API_BASE_URL}/me/top/artists?time_range=short_term`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
@@ -104,23 +195,58 @@ export class RequestDataService {
       const following = await this.getFollowing();
       const data = await result.json();
       const artists = data?.items || [];
-      const topArtists: ARTIST_INTERFACE[] = artists.map((artist: any) => ({
-        id: artist.id,
-        name: artist.name,
-        images: artist.images
-      }));
-      topArtists.forEach((artist)=> {
-        following.forEach((result) => {
-          if (result.id === artist.id) {
-            artist.following = true;
-          }
-        });
-      });
-      return topArtists;
+      const resultArtists: ARTIST_INTERFACE[] | null = [];
+      if(artists){
+        artists.forEach((artist: any) => resultArtists.push(this.artistMapper.mapToArtist(artist)));
+      }
+      return resultArtists;
     } catch (error) {
       return [];
     }
   }
 
+  async getTopTracks(): Promise<TRACK_INTERFACE[] | null> {
+    if (!this.authService.checkTokens()) {
+      return [];
+    }
+    try {
+      const result = await fetch(`${this.API_BASE_URL}/me/top/tracks?time_range=short_term&limit=50`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+        }
+      });
+      if (!result.ok) {
+        console.log('Fehler beim Abrufen der Daten');
+      }
+      const data = await result.json();
+      const tracks: any[] = data?.items || [];
+      const resultTracks: TRACK_INTERFACE[] | null = [];
+      if(tracks){
+        tracks.forEach((track: any) => resultTracks.push(this.trackMapper.mapToTrack(track)));
+      }
+      return resultTracks;
+    } catch (error) {
+      return [];
+    }
+  }
 
+  async followArtists(id:string): Promise<void>{
+    if (this.authService.checkTokens()) {
+      try {
+        const result = await fetch(`${this.API_BASE_URL}/me/following?type=artist&ids=${id}`, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
+          }
+        });
+        if (!result.ok) {
+          console.log('Fehler beim Abrufen der Daten');
+        }
+        console.log(this.getFollowing());
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 }

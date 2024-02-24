@@ -1,0 +1,17 @@
+<div class="container">
+  <mat-button-toggle-group>
+    @for (node of SEARCH_OPTIONS; track node.name){
+      @if (node.name === 'All'){
+        <mat-button-toggle checked="true" class="list-item" (click)="newEvent.emit(node.name.toLowerCase())">
+          <span matLine class="text">{{node.name}}</span>
+        </mat-button-toggle>
+      } @else {
+        <mat-button-toggle class="list-item" (click)="newEvent.emit(node.name.toLowerCase())">
+          <span matLine class="text">{{node.name}}</span>
+        </mat-button-toggle>
+      }
+    }
+  </mat-button-toggle-group>
+</div>
+
+

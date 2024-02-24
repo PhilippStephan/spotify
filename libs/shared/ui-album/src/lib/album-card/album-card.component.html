@@ -1,0 +1,33 @@
+@if (album){
+  <div class="card-container">
+    <mat-card class="card">
+      <mat-card-content class="card-content">
+        <div>
+          @if (album.albumImages[0].url){
+            <img class="album-cover"
+                 src="{{album.albumImages[0].url}}"
+                 alt="">
+          } @else {
+            <mat-icon class="no-picture">album</mat-icon>
+          }
+        </div>
+        <div>
+          <div class="truncate-text" matTooltip="{{album.name}}" matTooltipPosition="above">
+            {{ album.name }}
+          </div>
+          <div class="truncate-text font-thin">
+            {{album!.release_date.substring(0,4)}}
+            @if(album.artists){
+              -
+              @for (artist of album.artists.slice(0,2); let i = $index; track artist){
+                <a class="artists" matTooltip="{{artist.name}}" matTooltipPosition="above">{{artist.name}}</a>{{i < (album.artists.slice(0,2).length - 1) ? ',' : ''}}
+              }
+            }
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+}
+

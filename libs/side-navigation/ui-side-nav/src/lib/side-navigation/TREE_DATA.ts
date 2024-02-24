@@ -19,6 +19,6 @@ export const TREE_DATA: RouterNode[] = [
   {
     name: 'Library',
     route: '/library',
-    icon: 'library_books'
+    icon: 'library_music'
   },
 ];

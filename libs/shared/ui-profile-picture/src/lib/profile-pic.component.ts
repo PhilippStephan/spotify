@@ -28,8 +28,6 @@ export class ProfilePicComponent {
     const imgElement = event.target as HTMLImageElement;
     const width = imgElement.naturalWidth;
     const height = imgElement.naturalHeight;
-    console.log('Width:', width);
-    console.log('Height:', height);
     if(width === height){
       this.isSquare = true;
     }

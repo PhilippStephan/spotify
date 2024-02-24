@@ -1,21 +1,18 @@
 @if (artist){
-  <mat-card class="card-container">
-    <h4>{{artist!.name}}</h4>
-      @if (artist.images?.[2]?.url){
-        <mat-card-content>
-          <profile-picture-profile-pic
-            [imageSrc]="artist.images?.[2]?.url"
-          [imageSize]="150">
-          </profile-picture-profile-pic>
-        </mat-card-content>
-      }
-    <div class="follow-button">
-      @if(artist!.following){
-        <button mat-stroked-button>Following</button>
-      } @else {
-        <button mat-stroked-button>Follow</button>
-      }
-    </div>
-  </mat-card>
+  <div class="card-container">
+    <mat-card class="card">
+      <mat-card-content>
+          @if (artist.images?.[0]?.url){
+            <profile-picture-profile-pic
+              [imageSrc]="artist.images?.[0]?.url"
+              [imageSize]="150">
+            </profile-picture-profile-pic>
+          } @else {
+            <mat-icon class="no-picture">account_circle</mat-icon>
+          }
+      </mat-card-content>
+      <mat-card-header>{{artist!.name}}</mat-card-header>
+    </mat-card>
+  </div>
 }
 

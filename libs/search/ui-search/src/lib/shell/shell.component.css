@@ -1,9 +1,20 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
+/* styles.css */
+.fixed-toolbar{
+  position: fixed;
+  top: 60px;
   width: 100%;
+  background-color: #303030;
+  z-index: 999999;
+  padding: 10px 0 10px 0;
 }
 
-.example-full-width {
-  width: 100%;
+.search-options button {
+  padding: 10px;
+  margin-right: 10px;
 }
+
+.search-results {
+  padding-left: 5px;
+  margin-top: 150px;
+}
+

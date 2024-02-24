@@ -17,14 +17,8 @@ import {map, startWith} from "rxjs";
   styleUrl: './search.component.css',
 })
 export class SearchComponent implements AfterContentInit{
-  @Input() artists!: string[] | null;
   @Output() newEvent = new EventEmitter<string>();
   @ViewChild('searchInput') searchInput!: ElementRef;
-
-  fakeartist = [
-    'kanye',
-    'Carti',
-  ]
 
   router = inject(Router);
   loading: boolean = false;
