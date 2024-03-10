@@ -19,4 +19,7 @@ export class CardComponent {
   @Input()
   artist: ARTIST_INTERFACE | undefined = undefined;
 
+  @Input()
+  index!: number | undefined;
+
 }

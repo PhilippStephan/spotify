@@ -9,7 +9,12 @@
 .mat-toolbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 60px;
+}
+
+mat-sidenav, mat-sidenav-content{
+  transition: all 300ms ease-in-out;
 }
 
 
@@ -28,10 +33,6 @@ mat-sidenav-container {
   width: 100%;
 }
 
-.mat-drawer {
-  width: 25%;
-  max-width: 300px;
-}
 
 .router {
   flex-grow: 1;
@@ -39,15 +40,3 @@ mat-sidenav-container {
   overflow-y: auto;
 }
 
-@media screen and (max-width: 515px) {
-  .mat-drawer {
-    width: 60px;
-  }
-}
-
-
-@media screen and (max-width: 515px) {
-  .mat-drawer {
-    width: 60px;
-  }
-}

@@ -5,7 +5,7 @@
     </button>
     <div class="card-container" #container (window:resize)="onResize($event)">
       @for (artist of (artists | async)?.slice(0,6); track artist) {
-        <artist-card-card [artist]="artist"></artist-card-card>
+        <artist-card-card [artist]="artist" [index]="(artists | async)!.indexOf(artist) + 1"></artist-card-card>
       }
     </div>
     <button #rightbutton mat-icon-button class="scroll-button right" (click)="scrollRight()" [disabled]="rightIsDisabled!">

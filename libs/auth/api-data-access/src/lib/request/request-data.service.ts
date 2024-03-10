@@ -6,6 +6,12 @@ import {AlbumMapperService, ArtistMapperService, TrackMapperService} from "share
 import {EMPTY} from "rxjs";
 import {ALBUM_INTERFACE} from "../../../../../shared/domain/src/lib/model/ALBUM_INTERFACE";
 
+export const TIME_RANGE =  {
+  SHORT_TERM: "short_term",
+  MEDIUM_TERM: "medium_term",
+  LONG_TERM: "long_term",
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -178,12 +184,12 @@ export class RequestDataService {
     }
   }
 
-  async getTopArtists(): Promise<ARTIST_INTERFACE[]> {
+  async getTopArtists(limit: number, range: string): Promise<ARTIST_INTERFACE[]> {
     if (!this.authService.checkTokens()) {
       return [];
     }
     try {
-      const result = await fetch(`${this.API_BASE_URL}/me/top/artists?time_range=short_term`, {
+      const result = await fetch(`${this.API_BASE_URL}/me/top/artists?limit=${limit}&time_range=${range}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
@@ -192,7 +198,6 @@ export class RequestDataService {
       if (!result.ok) {
         console.log('Fehler beim Abrufen der Daten');
       }
-      const following = await this.getFollowing();
       const data = await result.json();
       const artists = data?.items || [];
       const resultArtists: ARTIST_INTERFACE[] | null = [];
@@ -205,12 +210,12 @@ export class RequestDataService {
     }
   }
 
-  async getTopTracks(): Promise<TRACK_INTERFACE[] | null> {
+  async getTopTracks(limit: number, range: string): Promise<TRACK_INTERFACE[]> {
     if (!this.authService.checkTokens()) {
       return [];
     }
     try {
-      const result = await fetch(`${this.API_BASE_URL}/me/top/tracks?time_range=short_term&limit=50`, {
+      const result = await fetch(`${this.API_BASE_URL}/me/top/tracks?limit=${limit}&time_range=${range}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem('access_token')}`

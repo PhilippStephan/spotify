@@ -46,6 +46,14 @@
       "side-navigation/ui-side-nav": [
         "libs/side-navigation/ui-side-nav/src/index.ts"
       ],
+      "statistics/domain": ["libs/statistics/domain/src/index.ts"],
+      "statistics/ui-shell": ["libs/statistics/ui-shell/src/index.ts"],
+      "statistics/ui-top-artists": [
+        "libs/statistics/ui-top-artists/src/index.ts"
+      ],
+      "statistics/ui-top-tracks": [
+        "libs/statistics/ui-top-tracks/src/index.ts"
+      ],
       "welcome/domain": ["libs/welcome/domain/src/index.ts"],
       "welcome/ui-welcome": ["libs/welcome/ui-welcome/src/index.ts"]
     },

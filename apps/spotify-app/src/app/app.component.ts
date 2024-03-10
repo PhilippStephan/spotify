@@ -1,4 +1,4 @@
-import {Component, inject, OnInit, ViewChild} from '@angular/core';
+import {Component, computed, inject, OnInit, signal, ViewChild} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterOutlet} from '@angular/router';
 import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatLabel} from "@angular/material/form-field";
@@ -12,6 +12,7 @@ import {filter, map, Observable} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 import {AuthService} from "auth/api-data-access";
 import {LandingpageComponent} from "welcome/ui-welcome";
+import {setupHostIfDynamic} from "@nx/angular/src/generators/setup-mf/lib";
 
 
 
@@ -42,11 +43,12 @@ export class AppComponent implements OnInit{
   title = 'spotify-app';
   showSideNav: boolean = true;
   router = inject(Router)
-  authService = inject(AuthService);
-  activatedRoute = inject(ActivatedRoute);
-
 
   protected readonly storage = window.localStorage;
+
+  collapsed = signal(false);
+
+  sideNavWidth = computed(() => this.collapsed() ? '65px' : '250px');
 
   ngOnInit() {
     this.router.events.subscribe(event => {

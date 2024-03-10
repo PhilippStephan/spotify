@@ -7,7 +7,7 @@
     <div class="following-container">
       <div class="card-container">
         @for (artist of (data.artists | async); track artist) {
-          <artist-card-card [artist]="artist"></artist-card-card>
+          <artist-card-card [artist]="artist" [index]="(data.artists | async)!.indexOf(artist) + 1"></artist-card-card>
         }
       </div>
     </div>

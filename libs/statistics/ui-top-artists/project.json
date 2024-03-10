@@ -1,0 +1,9 @@
+{
+  "name": "statistics-ui-top-artists",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/statistics/ui-top-artists/src",
+  "prefix": "top-artists",
+  "tags": ["domain:statistics", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

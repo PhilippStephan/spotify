@@ -1,10 +1,56 @@
 <mat-nav-list>
-@for (node of TREE_DATA; track node.name){
-  <mat-list-item routerLink="{{node.route}}" routerLinkActive="active">
-    <span class="list-item">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="{{node.icon}}"></mat-icon>
-      <span matLine class="text">{{node.name}}</span>
-    </span>
-  </mat-list-item>
-}
+  @for (node of menuItems(); track node.name){
+    @if (!node.children){
+      <a
+         mat-list-item
+         class="menu-item"
+         routerLink="{{node.route}}"
+         routerLinkActive="selected-menu-item"
+         #rla="routerLinkActive"
+         [activated]="rla.isActive"
+      >
+          <mat-icon matListItemIcon class="icon" [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" [matTooltip]="sideNavCollapsed() ? node.name : ''">{{node.icon}}</mat-icon>
+          @if(!sideNavCollapsed()){
+            <span matListItemTitle>{{node.name}}</span>
+          }
+      </a>
+    } @else {
+      <a
+         mat-list-item
+         class="menu-item"
+         routerLink="{{node.route}}"
+         routerLinkActive
+         #rla="routerLinkActive"
+         [ngClass]="rla.isActive && sideNavCollapsed() ? 'selected-menu-item' : ''"
+         [activated]="rla.isActive && sideNavCollapsed()"
+         (click)="toggleContent()"
+      >
+        <mat-icon matListItemIcon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" [matTooltip]="sideNavCollapsed() ? node.name : ''">{{node.icon}}</mat-icon>
+        @if(!sideNavCollapsed()){
+          <span matListItemTitle>{{node.name}}</span>
+        } @else {
+
+        }
+      </a>
+      @if (!sideNavCollapsed()){
+        <div class="children">
+          @for (children of node.children; track children){
+            <a
+              mat-list-item
+              class="menu-item"
+              routerLink="{{children.route}}"
+              routerLinkActive="selected-menu-item"
+              #rla="routerLinkActive"
+              [activated]="rla.isActive"
+            >
+              <mat-icon matListItemIcon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" [matTooltip]="sideNavCollapsed() ? node.name : ''">{{children.icon}}</mat-icon>
+              <span matListItemTitle>{{children.name}}</span>
+            </a>
+          }
+        </div>
+      }
+    }
+  }
 </mat-nav-list>
+
+

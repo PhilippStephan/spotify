@@ -1,0 +1,9 @@
+{
+  "name": "statistics-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/statistics/domain/src",
+  "prefix": "statistics",
+  "tags": ["domain:statistics", "type:domain-logic"],
+  "projectType": "library",
+  "targets": {}
+}

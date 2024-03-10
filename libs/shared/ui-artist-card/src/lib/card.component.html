@@ -11,7 +11,14 @@
             <mat-icon class="no-picture">account_circle</mat-icon>
           }
       </mat-card-content>
-      <mat-card-header>{{artist!.name}}</mat-card-header>
+      <mat-card-header class="name">
+        @if (index){
+          {{index}}.
+        }
+        <a class="artists">
+          {{artist!.name}}
+        </a>
+      </mat-card-header>
     </mat-card>
   </div>
 }

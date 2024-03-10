@@ -1,0 +1,9 @@
+{
+  "name": "statistics-ui-top-tracks",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/statistics/ui-top-tracks/src",
+  "prefix": "top-tracks",
+  "tags": ["domain:statistics", "type:ui"],
+  "projectType": "library",
+  "targets": {}
+}

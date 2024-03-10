@@ -26,3 +26,15 @@
 mat-icon {
   font-size: 180px;
 }
+
+.artists{
+  cursor: pointer;
+}
+
+.artists:hover{
+  text-decoration: underline;
+}
+
+.name{
+  gap: 5px;
+}

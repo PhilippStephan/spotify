@@ -16,7 +16,6 @@ import {MatIconButton} from "@angular/material/button";
 import {Observable} from "rxjs";
 import {ARTIST_INTERFACE} from "shared/domain";
 import {MatDialog} from "@angular/material/dialog";
-import {AllTopArtistsComponent} from "../all-top-artists/all-top-artists.component";
 
 @Component({
   selector: 'profile-artists-display',

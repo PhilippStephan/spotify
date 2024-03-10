@@ -1,15 +1,17 @@
 @if (showSideNav){
   <div class="page-container">
     <mat-toolbar>
-      <img src="/assets/Spotify_Logo_RGB_White.png">
+      <button mat-icon-button (click)="collapsed.set(!collapsed())">
+        <mat-icon>menu</mat-icon>
+      </button>
       <profile-profile></profile-profile>
     </mat-toolbar>
     <div class="layout-box">
       <mat-sidenav-container #sidenav>
-        <mat-sidenav class="sidebar" mode="side" opened>
-          <side-nav-side-navigation></side-nav-side-navigation>
+        <mat-sidenav mode="side" opened [style.width]="sideNavWidth()">
+          <side-nav-side-navigation [collapsed]="collapsed()" (newEvent)="collapsed.set(!collapsed())"></side-nav-side-navigation>
         </mat-sidenav>
-        <mat-sidenav-content class="router">
+        <mat-sidenav-content class="router" [style.margin-left]="sideNavWidth()">
           <router-outlet></router-outlet>
         </mat-sidenav-content>
       </mat-sidenav-container>

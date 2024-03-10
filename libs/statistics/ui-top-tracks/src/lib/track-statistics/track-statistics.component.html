@@ -1,0 +1,12 @@
+<h2>Top Tracks ({{selectedTabTitle()}})</h2>
+<mat-tab-group (selectedTabChange)="onTabChange($event)">
+  <mat-tab label="Last 30 days" >
+    <track-list-track-list [tracks]="shortTermTracks"></track-list-track-list>
+  </mat-tab>
+  <mat-tab label="Last 6 months">
+    <track-list-track-list [tracks]="mediumTermTracks"></track-list-track-list>
+  </mat-tab>
+  <mat-tab label="All time">
+    <track-list-track-list [tracks]="longTermTracks"></track-list-track-list>
+  </mat-tab>
+</mat-tab-group>

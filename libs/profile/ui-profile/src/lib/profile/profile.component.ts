@@ -28,10 +28,8 @@ export class ProfileComponent {
   openDialog(): void {
     this.dialog.open(LogoutDialogComponent);
   }
-  navigateTo(input:string, method?: string){
-    if(method){
-      window.open(input, method);
-    }
+  navigateTo(input:string){
+    window.open(input, "_blank");
   }
 
 

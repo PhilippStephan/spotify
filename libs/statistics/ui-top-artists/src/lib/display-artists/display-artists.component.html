@@ -1,0 +1,10 @@
+@if (artists){
+  <div class="following-container">
+    <div class="card-container">
+      @for (artist of artists; track artist) {
+        <artist-card-card [artist]="artist" [index]="artists.indexOf(artist) + 1"></artist-card-card>
+      }
+    </div>
+  </div>
+}
+

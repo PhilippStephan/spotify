@@ -25,4 +25,17 @@ export const routes: Routes = [
     path: 'profile',
     loadComponent: () => import('profile/ui-profile').then((m) => m.ProfileDetailsComponent)
   },
+  {
+    path: 'statistics/tracks',
+    loadComponent: () => import('statistics/ui-top-tracks').then((m) => m.TrackStatisticsComponent)
+  },
+  {
+    path: 'statistics/artists',
+    loadComponent: () => import('statistics/ui-top-artists').then((m) => m.ArtistStatisticsComponent)
+  },
+  {
+    path: 'statistics',
+    redirectTo: '',
+  },
+
 ];

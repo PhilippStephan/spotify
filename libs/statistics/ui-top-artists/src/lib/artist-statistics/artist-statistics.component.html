@@ -1,0 +1,17 @@
+<h2>Top Tracks ({{selectedTabTitle()}})</h2>
+<mat-tab-group (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Last 30 days" >
+      <top-artists-display-artists [artists]="shortTermArtists"></top-artists-display-artists>
+    </mat-tab>
+    <mat-tab label="Last 6 months">
+      @for (artist of mediumTermArtists; track artist){
+        <artist-card-card [artist]="artist"></artist-card-card>
+      }
+    </mat-tab>
+    <mat-tab label="All time">
+      @for (artist of longTermArtists; track artist){
+        <artist-card-card [artist]="artist"></artist-card-card>
+      }
+    </mat-tab>
+
+</mat-tab-group>

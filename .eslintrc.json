@@ -83,6 +83,13 @@
               {
                 "sourceTag": "domain:profile",
                 "onlyDependOnLibsWithTags": ["domain:profile", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:statistics",
+                "onlyDependOnLibsWithTags": [
+                  "domain:statistics",
+                  "domain:shared"
+                ]
               }
             ]
           }
