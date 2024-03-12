@@ -1,0 +1,16 @@
+.tracks{
+  height: 70vh;
+  overflow-y: auto;
+}
+
+.add-button{
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 16px;
+
+  button{
+    color: #ffffff;
+    background: var(--primary-color);
+  }
+}

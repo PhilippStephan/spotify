@@ -6,11 +6,25 @@
   bottom: 0;
 }
 
-.mat-toolbar {
+mat-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
+}
+
+.menu-logo{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  button{
+    margin-left: -6px;
+  }
+
+  img{
+    height: 24px;
+  }
 }
 
 mat-sidenav, mat-sidenav-content{

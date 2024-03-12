@@ -13,6 +13,7 @@ import {AsyncPipe} from "@angular/common";
 import {AuthService} from "auth/api-data-access";
 import {LandingpageComponent} from "welcome/ui-welcome";
 import {setupHostIfDynamic} from "@nx/angular/src/generators/setup-mf/lib";
+import {MatListItemIcon} from "@angular/material/list";
 
 
 
@@ -33,7 +34,7 @@ import {setupHostIfDynamic} from "@nx/angular/src/generators/setup-mf/lib";
     MatTree,
     MatNestedTreeNode,
     MatTreeNodeOutlet,
-    MatToolbar, ProfileComponent, AsyncPipe, MatIconButton, LandingpageComponent],
+    MatToolbar, ProfileComponent, AsyncPipe, MatIconButton, LandingpageComponent, MatListItemIcon],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

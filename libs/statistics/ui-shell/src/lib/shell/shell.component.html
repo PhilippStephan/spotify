@@ -1,28 +1,3 @@
-<div>
-  <mat-form-field>
-    <mat-select [(value)]="selectedType">
-      <mat-option value="tracks" >Top Tracks</mat-option>
-      <mat-option value="artists">Top Artists</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-button-toggle-group>
-    <mat-button-toggle checked="true" class="list-item" (click)="toggleResults(TIME_RANGE.SHORT_TERM)">
-      <span matLine class="text">Last 30 days</span>
-    </mat-button-toggle>
-    <mat-button-toggle checked="true" class="list-item" (click)="toggleResults(TIME_RANGE.MEDIUM_TERM)">
-      <span matLine class="text">Last 6 months</span>
-    </mat-button-toggle>
-    <mat-button-toggle checked="true" class="list-item" (click)="toggleResults(TIME_RANGE.LONG_TERM)">
-      <span matLine class="text">All time</span>
-    </mat-button-toggle>
-  </mat-button-toggle-group>
-  <div>
-    @if (selectedType === 'tracks'){
-      <top-tracks-track-statistics [tracks]="(topTracks$ | async)"></top-tracks-track-statistics>
-    } @else{
-      <top-artists-artist-statistics [artists]="(topArtists$ | async)"></top-artists-artist-statistics>
-    }
-  </div>
-</div>
+
 
 

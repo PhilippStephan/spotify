@@ -2,7 +2,7 @@
 <div class="profile-container">
   @if (user){
     @if (user!.images[1]!.url){
-      <div (click)="alert('Overview')">
+      <div>
         <profile-picture-profile-pic
           [imageSrc]="(user!.images[1]!.url)"
           [imageSize]="250"

@@ -1,5 +1,5 @@
-import {Component, inject, Input, signal} from '@angular/core';
-import {ARTIST_INTERFACE, TRACK_INTERFACE} from "shared/domain";
+import {Component, inject, OnInit, signal} from '@angular/core';
+import {ARTIST_INTERFACE} from "shared/domain";
 import {RequestDataService, TIME_RANGE} from "auth/api-data-access";
 import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 import {MatLine} from "@angular/material/core";
@@ -7,7 +7,7 @@ import {MatTab, MatTabChangeEvent, MatTabGroup} from "@angular/material/tabs";
 import {TrackListComponent} from "shared/ui-track-list";
 import {CardComponent} from "shared/ui-artist-card";
 import {DisplayArtistsComponent} from "../display-artists/display-artists.component";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'top-artists-artist-statistics',
@@ -20,14 +20,14 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     MatTabGroup,
     TrackListComponent,
     CardComponent,
-    DisplayArtistsComponent
+    DisplayArtistsComponent,
+    MatButton
   ],
   templateUrl: './artist-statistics.component.html',
   styleUrl: './artist-statistics.component.scss'
 })
-export class ArtistStatisticsComponent {
+export class ArtistStatisticsComponent implements OnInit{
 
-  private _snackBar = inject(MatSnackBar);
   private requestService = inject(RequestDataService);
 
   selectedTabTitle  = signal('Last 30 days');
@@ -36,7 +36,6 @@ export class ArtistStatisticsComponent {
   longTermArtists: ARTIST_INTERFACE[] = [];
 
   ngOnInit(): void {
-    this.openSnackBar("Add to playlist", "Add")
     this.requestService.getTopArtists(50, TIME_RANGE.SHORT_TERM).then((tracks) => {
       this.shortTermArtists = tracks;
       return this.requestService.getTopArtists(50, TIME_RANGE.MEDIUM_TERM);
@@ -50,10 +49,6 @@ export class ArtistStatisticsComponent {
 
   onTabChange(event: MatTabChangeEvent): void {
     this.selectedTabTitle.set(event.tab.textLabel);
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
   }
   protected readonly TIME_RANGE = TIME_RANGE;
 }

@@ -34,8 +34,8 @@ export const routes: Routes = [
     loadComponent: () => import('statistics/ui-top-artists').then((m) => m.ArtistStatisticsComponent)
   },
   {
-    path: 'statistics',
-    redirectTo: '',
-  },
+    path: '',
+    loadComponent: () => import('statistics/ui-shell').then((m) => m.ShellComponent)
+  }
 
 ];

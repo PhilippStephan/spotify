@@ -9,4 +9,5 @@ export interface TRACK_INTERFACE  {
   artists: ARTIST_INTERFACE[],
   duration_ms: number,
   explicit: boolean
+  uri: string,
 }

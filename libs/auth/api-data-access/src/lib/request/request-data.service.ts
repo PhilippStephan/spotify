@@ -1,10 +1,9 @@
 import {inject, Injectable} from '@angular/core';
 import {AuthService} from "auth/api-data-access";
-import {ARTIST_INTERFACE, TRACK_INTERFACE, USER_INTERFACE} from "shared/domain";
-import {HttpClient} from "@angular/common/http";
+import {ALBUM_INTERFACE, ARTIST_INTERFACE, TRACK_INTERFACE, USER_INTERFACE} from "shared/domain";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AlbumMapperService, ArtistMapperService, TrackMapperService} from "shared/util-mapper";
-import {EMPTY} from "rxjs";
-import {ALBUM_INTERFACE} from "../../../../../shared/domain/src/lib/model/ALBUM_INTERFACE";
+import {catchError, throwError} from "rxjs";
 
 export const TIME_RANGE =  {
   SHORT_TERM: "short_term",
@@ -251,6 +250,62 @@ export class RequestDataService {
         console.log(this.getFollowing());
       } catch (error) {
         console.log(error)
+      }
+    }
+  }
+
+   createPlaylist(title: string, description: string, isPublic: boolean, tracks?: string[]){
+    if(this.authService.checkTokens()){
+      if(title){
+        console.log()
+        const url = `https://api.spotify.com/v1/users/${window.localStorage.getItem('id')}/playlists`;
+        const body = {
+          name: title,
+          description: description,
+          public: isPublic
+        };
+
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${window.localStorage.getItem('access_token')}`,
+          'Content-Type': 'application/json'
+        });
+        let playlistId = ""
+        const data = this.http.post(url, body, { headers: headers }).pipe(
+          catchError(error => {
+            console.error("Error:", error);
+            return throwError(error);
+          })
+        )
+          .subscribe((response: any) => {
+            console.log("Response:", response);
+            playlistId = response.id;
+            if (tracks){
+              this.addTracksToPlaylist(playlistId, tracks);
+            }
+          });
+      }
+    }
+  }
+
+   addTracksToPlaylist(playlistId: string, tracks: string[], position?: number){
+    if(this.authService.checkTokens()){
+      if(tracks){
+        const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+        const body = {
+          uris: tracks,
+          position: position ?? 0
+        };
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${window.localStorage.getItem('access_token')}`,
+          'Content-Type': 'application/json'
+        });
+        this.http.post(url, body, { headers: headers }).pipe(
+          catchError(error => {
+            console.error("Error:", error);
+            return throwError(error);
+          })
+        )
+          .subscribe();
       }
     }
   }

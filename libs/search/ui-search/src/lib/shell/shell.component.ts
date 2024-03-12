@@ -1,14 +1,12 @@
-import {Component, inject, Injectable, OnInit} from '@angular/core';
+import {Component, inject, Injectable} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AuthService, RequestDataService} from "auth/api-data-access";
-import {ARTIST_INTERFACE, TRACK_INTERFACE, USER_INTERFACE} from "shared/domain";
+import {ALBUM_INTERFACE, ARTIST_INTERFACE, TRACK_INTERFACE} from "shared/domain";
 import {MatFormField} from "@angular/material/form-field";
 import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
-import {ActivatedRoute} from "@angular/router";
-import {BehaviorSubject, debounceTime, map, Observable, of, startWith, switchMap} from "rxjs";
-import {forEach} from "@angular-devkit/schematics";
-import {FormControl, ReactiveFormsModule} from "@angular/forms";
+import {BehaviorSubject, debounceTime, Observable, switchMap} from "rxjs";
+import { ReactiveFormsModule} from "@angular/forms";
 import {MatAutocomplete, MatAutocompleteTrigger, MatOption} from "@angular/material/autocomplete";
 import {SearchComponent} from "../search/search.component";
 import {MatList, MatListItem} from "@angular/material/list";
@@ -19,7 +17,6 @@ import {TrackResultsComponent} from "../track-results/track-results.component";
 import {PlaylistResultsComponent} from "../playlist-results/playlist-results.component";
 import {SEARCH_OPTIONS} from "../search-tool-bar/SEARCH_OPTIONS";
 import {MatSidenavContent} from "@angular/material/sidenav";
-import {ALBUM_INTERFACE} from "../../../../../shared/domain/src/lib/model/ALBUM_INTERFACE";
 
 @Component({
   selector: 'search-shell',

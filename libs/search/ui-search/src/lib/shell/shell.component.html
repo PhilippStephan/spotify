@@ -11,10 +11,12 @@
 </div>
 
 <div class="search-results">
-  <search-track-results class="result-section" *ngIf="showingAll || selectedResult === 'tracks'" [tracks]="(resultTracks$ | async)"></search-track-results>
-  <search-artist-results class="result-section" *ngIf="showingAll || selectedResult === 'artists'" [artists]="(resultArtists$ | async)"></search-artist-results>
-  <search-album-results class="result-section" *ngIf="showingAll || selectedResult === 'albums'" [albums]="(resultAlbums$ | async)"></search-album-results>
-  <search-playlist-results class="result-section" *ngIf="showingAll || selectedResult === 'playlists'"></search-playlist-results>
+  @if ((filterSearch$ | async)!.length != 0){
+    <search-track-results class="result-section" *ngIf="showingAll || selectedResult === 'tracks'" [tracks]="(resultTracks$ | async)"></search-track-results>
+    <search-artist-results class="result-section" *ngIf="showingAll || selectedResult === 'artists'" [artists]="(resultArtists$ | async)"></search-artist-results>
+    <search-album-results class="result-section" *ngIf="showingAll || selectedResult === 'albums'" [albums]="(resultAlbums$ | async)"></search-album-results>
+    <search-playlist-results class="result-section" *ngIf="showingAll || selectedResult === 'playlists'"></search-playlist-results>
+  }
 </div>
 </div>
 

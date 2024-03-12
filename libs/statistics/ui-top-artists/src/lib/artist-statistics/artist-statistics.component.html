@@ -4,14 +4,10 @@
       <top-artists-display-artists [artists]="shortTermArtists"></top-artists-display-artists>
     </mat-tab>
     <mat-tab label="Last 6 months">
-      @for (artist of mediumTermArtists; track artist){
-        <artist-card-card [artist]="artist"></artist-card-card>
-      }
+      <top-artists-display-artists [artists]="mediumTermArtists"></top-artists-display-artists>
     </mat-tab>
     <mat-tab label="All time">
-      @for (artist of longTermArtists; track artist){
-        <artist-card-card [artist]="artist"></artist-card-card>
-      }
+      <top-artists-display-artists [artists]="longTermArtists"></top-artists-display-artists>
     </mat-tab>
 
 </mat-tab-group>

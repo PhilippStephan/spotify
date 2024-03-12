@@ -17,7 +17,8 @@ export class TrackMapperService {
       albumImages: track.album?.images,
       artists: this.setArtists(track.artists),
       duration_ms: track.duration_ms,
-      explicit: track.explicit
+      explicit: track.explicit,
+      uri: track.uri,
     };
   }
 

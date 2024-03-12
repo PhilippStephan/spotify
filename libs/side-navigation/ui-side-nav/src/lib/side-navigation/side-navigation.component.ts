@@ -11,7 +11,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatButton, MatIconButton} from "@angular/material/button";
 import {RouterNode, TREE_DATA} from "./TREE_DATA";
-import {Router, RouterLink, RouterLinkActive} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {MatList, MatListItem, MatListItemIcon, MatListItemTitle, MatNavList} from "@angular/material/list";
 import {MatLine} from "@angular/material/core";
 import {
@@ -22,8 +22,7 @@ import {
 } from "@angular/material/expansion";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatTooltip} from "@angular/material/tooltip";
-import {timeout} from "rxjs";
-import {NgClass} from "@angular/common";
+import {AsyncPipe, NgClass} from "@angular/common";
 
 @Component({
   selector: 'side-nav-side-navigation',
@@ -51,7 +50,8 @@ import {NgClass} from "@angular/common";
     MatAccordion,
     MatListItemIcon,
     MatTooltip,
-    NgClass
+    NgClass,
+    AsyncPipe
   ],
   templateUrl: './side-navigation.component.html',
   styleUrl: './side-navigation.component.scss',
@@ -68,6 +68,7 @@ export class SideNavigationComponent {
   newEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   router = inject(Router);
+  route = inject(ActivatedRoute);
   protected readonly TREE_DATA = TREE_DATA;
   menuItems = signal<RouterNode[]>(TREE_DATA);
 
@@ -77,10 +78,4 @@ export class SideNavigationComponent {
       this.newEvent.emit(true);
     }
   }
-
-  navigateTo(route: string){
-    this.router.navigate([route]);
-  }
-
-
 }

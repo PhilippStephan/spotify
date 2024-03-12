@@ -1,9 +1,12 @@
 @if (showSideNav){
   <div class="page-container">
     <mat-toolbar>
-      <button mat-icon-button (click)="collapsed.set(!collapsed())">
-        <mat-icon>menu</mat-icon>
-      </button>
+      <div class="menu-logo">
+        <button mat-icon-button (click)="collapsed.set(!collapsed())">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <img src="../assets/Spotify_Logo_RGB_White.png" alt="Spotify">
+      </div>
       <profile-profile></profile-profile>
     </mat-toolbar>
     <div class="layout-box">

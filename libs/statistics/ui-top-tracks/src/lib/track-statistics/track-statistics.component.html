@@ -1,12 +1,36 @@
 <h2>Top Tracks ({{selectedTabTitle()}})</h2>
 <mat-tab-group (selectedTabChange)="onTabChange($event)">
-  <mat-tab label="Last 30 days" >
-    <track-list-track-list [tracks]="shortTermTracks"></track-list-track-list>
+  <mat-tab label="Last 30 days">
+    <div class="tracks">
+      <track-list-track-list  [tracks]="shortTermTracks"></track-list-track-list>
+    </div>
+    <div class="add-button">
+      <button mat-raised-button (click)="createPlaylist('Top Tracks last 30 days', 'Top Tracks last 30 days', shortTermTracks)">
+        <mat-icon>add</mat-icon>
+        Create Playlist
+      </button>
+    </div>
   </mat-tab>
   <mat-tab label="Last 6 months">
-    <track-list-track-list [tracks]="mediumTermTracks"></track-list-track-list>
+    <div class="tracks">
+      <track-list-track-list [tracks]="mediumTermTracks"></track-list-track-list>
+    </div>
+    <div class="add-button">
+      <button mat-raised-button (click)="createPlaylist('Top Tracks last 6 months', 'Top Tracks last 6 months', mediumTermTracks)">
+        <mat-icon>add</mat-icon>
+        Create Playlist
+      </button>
+    </div>
   </mat-tab>
   <mat-tab label="All time">
-    <track-list-track-list [tracks]="longTermTracks"></track-list-track-list>
+    <div class="tracks">
+      <track-list-track-list [tracks]="longTermTracks"></track-list-track-list>
+    </div>
+    <div class="add-button">
+      <button mat-raised-button (click)="createPlaylist('Top Tracks of all time', 'Top Tracks of all time', longTermTracks)">
+        <mat-icon>add</mat-icon>
+        Create Playlist
+      </button>
+    </div>
   </mat-tab>
 </mat-tab-group>
